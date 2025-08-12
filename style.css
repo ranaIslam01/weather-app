@@ -1,31 +1,41 @@
+/* General Reset and Font Settings */
 * {
-  padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
+
+/* Body Styles */
 body {
   background-color: #222;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align card to the top */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  padding: 20px; /* Add some padding for smaller screens */
 }
 
+/* Main Card Styles */
 .card {
   width: 90%;
   max-width: 470px;
-  background: linear-gradient(135deg, #00feba, #fb548a);
+  background: linear-gradient(135deg, #00feba, #5b42f3); /* Updated Gradient */
   color: #fff;
-  margin: 100px auto 0;
+  margin: 50px auto 0; /* Adjusted margin for better centering */
   border-radius: 20px;
-  padding: 40px 35px;
+  padding: 30px 25px; /* Adjusted padding for responsiveness */
   text-align: center;
-  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Added a subtle shadow */
 }
 
+/* --- Search Bar Section (Updated for better UX) --- */
 .search {
   width: 100%;
+  position: relative; /* Crucial for positioning the button inside */
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .search input {
@@ -33,71 +43,111 @@ body {
   outline: none;
   background: #ebfffc;
   color: #555;
-  padding: 10px 25px;
   height: 60px;
   border-radius: 30px;
-  flex: 1;
-  margin-right: 16px;
+  padding: 10px 65px 10px 25px; /* Right padding to avoid text overlapping with the button */
   font-size: 18px;
-}
-.search button {
-  border: none;
-  outline: none;
-  background: #ebfffc;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-}
-.search button img {
-  width: 16px;
+  width: 100%; /* Make input take full width of the container */
 }
 
-.weather-icon{
-  width: 170px;
+.search button {
+  position: absolute; /* Position button inside the input field */
+  right: 0px; /* Place it on the right side */
+  top: 0;
+  height: 60px;
+  width: 60px;
+  background: #ebfffc; /* Match input background */
+  border: none;
+  outline: none;
+  border-radius: 0 30px 30px 0; /* Rounded corners only on the right */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search button:hover {
+    background: #d4fff7; /* Slight hover effect for better UX */
+}
+
+.search button img {
+  width: 18px;
+}
+
+/* --- Weather Display Section --- */
+.weather {
+  display: none; /* Initially hidden */
+}
+
+.weather-icon {
+  width: 150px; /* Slightly adjusted size */
   margin-top: 20px;
 }
-.weather h1{
-  font-size: 80px;
+
+.weather h1 {
+  font-size: 70px; /* Adjusted for better fit on small screens */
   font-weight: 500;
 }
-.weather h2{
-  font-size: 45px;
+
+.weather h2 {
+  font-size: 40px; /* Adjusted for better fit */
   font-weight: 400;
   margin-top: -10px;
 }
 
+/* Details Section (Humidity and Wind) */
 .details {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 30px;
-  padding: 0 20px;
-  margin-top: 20px;
+  justify-content: space-around; /* Use space-around for better spacing */
+  margin-top: 40px;
+  padding: 0 10px;
 }
-.col{
+
+.col {
   display: flex;
   align-items: center;
   text-align: left;
 }
-.col img{
-  width: 50px;
+
+.col img {
+  width: 40px;
   margin-right: 10px;
-  margin-top: 10px; 
 }
 
-.humidity, .wind{
-  font-size: 25px;
-  margin-top: 10px;
+.humidity,
+.wind {
+  font-size: 24px;
 }
 
-.weather{
-  display:none
-}
+/* Error Message Style */
 .error {
   text-align: left;
   margin-left: 10px;
   margin-top: 10px;
-  font-weight: 600;
-  display: none;
+  font-size: 16px;
+  font-weight: bolder;
+  display: none; /* Initially hidden */
+}
+
+/* --- Media Queries for smaller devices --- */
+@media (max-width: 400px) {
+  .card {
+    padding: 25px 20px;
+  }
+  .weather h1 {
+    font-size: 60px;
+  }
+  .weather h2 {
+    font-size: 35px;
+  }
+  .details {
+    flex-direction: column; /* Stack details vertically */
+    align-items: flex-start;
+    gap: 20px; /* Add space between stacked items */
+    padding-left: 30px;
+  }
+  .humidity, .wind {
+    font-size: 22px;
+  }
 }
