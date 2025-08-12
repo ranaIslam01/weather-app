@@ -7,7 +7,7 @@
 
 This is a simple and elegant weather application that provides users with real-time weather data for any city. It fetches live data from the OpenWeatherMap API to display temperature, humidity, and wind speed.
 
-![Weather App Demo](https://i.ibb.co/9g8dC9k/weather-app-demo.png )
+![Weather App Demo](https://weather-app-fawn-two-23.vercel.app/)
 
 ---
 
